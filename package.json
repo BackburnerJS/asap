@@ -1,0 +1,25 @@
+{
+  "name": "asap.js",
+  "version": "1.0.0",
+  "description": "Enqueue microtask",
+  "main": "dist/asap.js",
+  "scripts": {
+    "build": "npm run tsc && npm run rollup && npm run babel",
+    "preinstall": "npm run build",
+    "tsc": "tsc",
+    "rollup": "rollup -i dist/es6/index.js -m inline -f es6 -o dist/es6/asap.js",
+    "babel": "babel dist/es6/asap.js --out-file dist/asap.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "microtask"
+  ],
+  "author": "Stefan Penner",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.1.18",
+    "babel-plugin-transform-es2015-modules-umd": "^6.1.18",
+    "rollup": "^0.20.5",
+    "typescript": "^1.8.0-dev.20151112"
+  }
+}
