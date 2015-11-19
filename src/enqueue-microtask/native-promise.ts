@@ -1,8 +1,8 @@
 const nativePromiseEnqueue: {
-	supported: boolean,
-	enqueue?: (microtask: () => void) => void
+  supported: boolean,
+  enqueue?: (microtask: () => void) => void
 } = (() => {
-  
+
   let hasNativePromise = (() :boolean => {
     let type = typeof Promise;
     let fnToString = Function.prototype.toString;
