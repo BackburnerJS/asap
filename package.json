@@ -2,7 +2,8 @@
   "name": "asap.js",
   "version": "1.0.0",
   "description": "Enqueue microtask",
-  "main": "dist/asap.js",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/es6/index.js",
   "scripts": {
     "build": "npm run tsc && npm run rollup",
     "prepublish": "npm run build",
