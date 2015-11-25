@@ -5,9 +5,8 @@ const mutationObserverEnqueue: {
   enqueue?: (microtask: () => void) => void
 } = (() => {
   let browserWindow = (typeof window !== 'undefined') ? window : undefined;
-  let BrowserMutationObserver = MutationObserver || WebKitMutationObserver;
   let hasMutationObserver = (() :boolean =>  {
-    return !!(MutationObserver || WebKitMutationObserver);
+    return !!('MutationObserver' in browserWindow || 'WebKitMutationObserver' in browserWindow);
   })();
   
   if (!hasMutationObserver) {
@@ -16,6 +15,8 @@ const mutationObserverEnqueue: {
       enqueue: undefined
     };
   }
+
+  let BrowserMutationObserver = MutationObserver || WebKitMutationObserver;
 
   return {
     supported: true,
